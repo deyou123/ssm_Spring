@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zdy.spring</groupId>
+    <artifactId>chapter3</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+<!--Spring 核心包-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.3.6.RELEASE</version>
+        </dependency>
+        <!-- 使用AspectJ 实现AOP  -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.4</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+
+<!--解决eclipse 向Idea 迁移找不到配置文件问题-->
+            <resources>
+                <resource>
+                    <directory>${basedir}/src/main/java</directory>
+                    <includes>
+                        <include>**/*.properties</include>
+                        <include>**/*.xml</include>
+                    </includes>
+                </resource>
+                <resource>
+                    <directory>${basedir}/src/main/resources</directory>
+                </resource>
+            </resources>
+
+    </build>
+
+
+</project>

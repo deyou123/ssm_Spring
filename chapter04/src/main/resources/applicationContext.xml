@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置数据源-->
+    <bean id="mysql" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!--数据库驱动-->
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <!--数据rul-->
+        <!--注意时区serverTimezone=UTC表示世界时间-->
+        <property name="url" value="jdbc:mysql://localhost:3306/db_spring?serverTimezone=UTC"></property>
+        <!--数据库username-->
+        <property name="username" value="root"></property>
+        <!--数据库password-->
+        <property name="password" value="666666"></property>
+    </bean>
+    <!--配置JDBC Template-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="mysql"></property>
+    </bean>
+    <bean id="userDao" class="com.ssm.jdbc.UserDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+    </bean>
+</beans>

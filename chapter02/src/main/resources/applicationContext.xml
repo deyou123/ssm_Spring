@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--scope 默认为singleton-->
+   <!-- <bean id="scope" class="com.ssm.scope.Scope" scope="singleton"></bean>-->
+    <!--原型-->
+    <bean id="scope" class="com.ssm.scope.Scope" scope="prototype"></bean>
+    <!--构造方法注入-->
+    <bean id="user1"  class="com.ssm.assemble.User">
+        <constructor-arg index="0" value="zhangsan"></constructor-arg>
+        <constructor-arg index="1" value="111111"></constructor-arg>
+        <constructor-arg index="2">
+            <list>
+                <value>"ConstructorValue1"</value>
+                <value>"ConstructorValue2"</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <!--setter()方法注入-->
+    <bean id="user2" class="com.ssm.assemble.User">
+        <property name="userName" value="lisi"></property>
+        <property name="password" value="2222222"></property>
+        <property name="list">
+            <list>
+                <value>"listValue1"</value>
+                <value>"listValue2"</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
